@@ -1,13 +1,13 @@
 import requests
 from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 
-rpc_username = 'username'
-rpc_password = 'password'
+rpc_username = 'bitcoinwspectrumrpc'
+rpc_password = 'fi2WNfpBZA2ajiw2qrRcps1BkazgRuVMu3Z1iNgAdNaj'
 rpc_ip = '127.0.0.1'
-rpc_port = 1234
+rpc_port = 46646
 
 con = AuthServiceProxy('http://%s:%s@%s:%i'%(rpc_username, rpc_password, rpc_ip, rpc_port))
-api = requests.get('https://api.coinmarketcap.com/v1/ticker/ammo-rewards/')
+api = requests.get('https://www.southxchange.com/api/price/BWS/BTC')
 
 #Tip commands
 def validateAddress(address):
@@ -50,7 +50,7 @@ def getPrice(amount=1,full=0,satoshi=0,refresh=0):
 
     if refresh:
         global api
-        api = requests.get('https://api.coinmarketcap.com/v1/ticker/ammo-rewards')
+        api = requests.get('https://www.southxchange.com/api/price/BWS/BTC')
         r = api.json()[0]
         price = float(r['price_usd'])
         price_btc = float(r['price_btc'])
